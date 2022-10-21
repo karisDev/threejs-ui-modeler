@@ -1,5 +1,12 @@
+import ThreeCanvas from "./components/three/ThreeCanvas";
+
 function App() {
-  return <div className="App">Hello World</div>;
+  // wait for import to finish
+  return (
+    <div className="App">
+      <ThreeCanvas />
+    </div>
+  );
 }
 
 export default App;
