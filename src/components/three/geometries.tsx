@@ -13,7 +13,7 @@ const Geometry: React.FC<GeometryProps> = ({ type }) => {
   }
 };
 
-export interface ThreeJSBodyProps {
+interface ThreeJSBodyProps {
   geometries: GeometryObject[];
 }
 
@@ -30,10 +30,10 @@ const ThreeJSBody: React.FC<ThreeJSBodyProps> = ({ geometries }) => {
           >
             <Geometry type={geometry.type} />
             <meshStandardMaterial
-              color={geometry.material.color}
+              color={geometry.material.color ?? "white"}
               roughness={geometry.material.roughness}
-              metalness={geometry.material.metalness}
-              wireframe={geometry.material.wireframe}
+              metalness={geometry.material?.metalness}
+              wireframe={geometry.material?.wireframe}
             />
           </mesh>
         );
