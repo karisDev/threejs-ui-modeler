@@ -1,7 +1,7 @@
 interface ThreeJSBodyProps {}
 
 const ThreeJSBody: React.FC<ThreeJSBodyProps> = () => {
-  return <></>;
+  return <canvas></canvas>;
 };
 
 export default ThreeJSBody;
