@@ -2,11 +2,10 @@ import { Euler, Vector3 } from "@react-three/fiber";
 
 export enum GeometryType {
   Box,
+  Sphere,
 }
 
 export enum MaterialType {
-  MeshStandardMaterial,
-  MeshBasicMaterial,
   MeshNormalMaterial,
 }
 
@@ -18,8 +17,8 @@ export interface Material {
   wireframe?: boolean;
 }
 
-export interface GeometryObject {
-  type: GeometryType;
+export interface MeshObject {
+  geometryType: GeometryType;
   material: Material;
   position?: Vector3;
   rotation?: Euler;
@@ -29,9 +28,4 @@ export interface GeometryObject {
 export interface SceneObject {
   backgroundColor?: string;
   cameraDamping?: boolean;
-}
-
-export interface ThreeJSBodyProps {
-  scene: SceneObject;
-  geometries: GeometryObject[];
 }

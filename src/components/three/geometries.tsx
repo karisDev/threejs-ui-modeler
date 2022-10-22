@@ -1,4 +1,4 @@
-import { GeometryObject, GeometryType } from "./interfaces";
+import { MeshObject, GeometryType } from "./interfaces";
 
 interface GeometryProps {
   type: GeometryType;
@@ -14,7 +14,7 @@ const Geometry: React.FC<GeometryProps> = ({ type }) => {
 };
 
 interface ThreeJSBodyProps {
-  geometries: GeometryObject[];
+  geometries: MeshObject[];
 }
 
 const ThreeJSBody: React.FC<ThreeJSBodyProps> = ({ geometries }) => {
@@ -28,7 +28,7 @@ const ThreeJSBody: React.FC<ThreeJSBodyProps> = ({ geometries }) => {
             rotation={geometry.rotation}
             scale={geometry.scale}
           >
-            <Geometry type={geometry.type} />
+            <Geometry type={geometry.geometryType} />
             <meshStandardMaterial
               color={geometry.material.color ?? "white"}
               roughness={geometry.material.roughness}

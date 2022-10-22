@@ -1,6 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Stars } from "@react-three/drei";
-import { ThreeJSBodyProps } from "./interfaces";
+import { MeshObject, SceneObject } from "./interfaces";
+import MeshBuilder from "./MeshBuilder";
 
 function Box() {
   return (
@@ -11,8 +12,12 @@ function Box() {
   );
 }
 
-const ThreeCanvas: React.FC<ThreeJSBodyProps> = ({ scene, geometries }) => {
-  // create canvas with a box, ambient light and orbit controls
+export interface ThreeCanvasProps {
+  scene: SceneObject;
+  geometries: MeshObject[];
+}
+
+const ThreeCanvas: React.FC<ThreeCanvasProps> = ({ scene, geometries }) => {
   return (
     <Canvas>
       <OrbitControls
@@ -26,7 +31,7 @@ const ThreeCanvas: React.FC<ThreeJSBodyProps> = ({ scene, geometries }) => {
         <color attach="background" args={[scene.backgroundColor]} />
       )}
       <pointLight position={[10, 10, 10]} />
-      <Box />
+      <MeshBuilder meshes={geometries} />
     </Canvas>
   );
 };
