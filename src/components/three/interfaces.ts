@@ -32,6 +32,6 @@ export interface SceneObject {
 }
 
 export interface ThreeJSBodyProps {
-  scene?: SceneObject;
-  geometries?: GeometryObject[];
+  scene: SceneObject;
+  geometries: GeometryObject[];
 }

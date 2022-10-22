@@ -1,5 +1,10 @@
-import { GeometryObject, GeometryType } from "./components/three/interfaces";
+import {
+  GeometryObject,
+  GeometryType,
+  SceneObject,
+} from "./components/three/interfaces";
 import ThreeCanvas from "./components/three/ThreeCanvas";
+import TopNav from "./components/UI/TopNav";
 
 function App() {
   // wait for import to finish
@@ -17,10 +22,18 @@ function App() {
       },
     },
   ];
+  const scene: SceneObject = {
+    cameraDamping: true,
+    backgroundColor: "#565656",
+  };
+
   return (
-    <div className="App">
-      <ThreeCanvas geometries={geometries} />
-    </div>
+    <>
+      <TopNav />
+      <main style={{ backgroundColor: "black" }}>
+        <ThreeCanvas scene={scene} geometries={geometries} />
+      </main>
+    </>
   );
 }
 

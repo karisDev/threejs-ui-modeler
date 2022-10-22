@@ -1,0 +1,53 @@
+@import "../../styles/variables";
+
+$top-nav-height: 40px;
+
+.top_nav__holder {
+  z-index: 100;
+  width: 100%;
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  .top_nav__container {
+    height: $top-nav-height;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    margin-top: 15px;
+    padding: 0 5px;
+    overflow: hidden;
+    width: min-content;
+    background-color: $light-nav-bg;
+    border-radius: 10px;
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 2px;
+      align-items: center;
+      li {
+        border-radius: 10px;
+        display: flex;
+        padding: 5px;
+        svg {
+          color: $light-nav-icon-color;
+          width: 24px;
+          height: 24px;
+        }
+        &:hover {
+          background-color: $light-nav-item-hover-bg;
+          svg {
+            color: $light-nav-icon-hover-color;
+          }
+        }
+        &:active {
+          background-color: $primary-bg-color;
+        }
+      }
+      .separator {
+        width: 2px;
+        height: 30px;
+        background-color: $light-separator-color;
+      }
+    }
+  }
+}
