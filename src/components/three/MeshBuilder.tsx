@@ -13,17 +13,17 @@ const MeshBuilder: Function = ({ meshes }: MeshBuilderProps): JSX.Element[] => {
         const geometry = () => {
           switch (mesh.geometryType) {
             case GeometryType.Box:
-              return <boxBufferGeometry attach="geometry" />;
+              return <boxBufferGeometry />;
             case GeometryType.Sphere:
-              return <sphereBufferGeometry attach="geometry" />;
+              return <sphereBufferGeometry />;
           }
         };
         const material = () => {
           switch (mesh.material) {
             case MaterialType.MeshNormalMaterial:
-              return <meshNormalMaterial attach="material" />;
+              return <meshNormalMaterial />;
             default:
-              return <meshNormalMaterial attach="material" />;
+              return <meshNormalMaterial />;
           }
         };
         return (

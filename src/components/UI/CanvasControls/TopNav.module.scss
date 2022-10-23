@@ -15,16 +15,16 @@ $top-nav-height: 40px;
     z-index: 100;
     margin-top: 15px;
     padding: 0 5px;
-    overflow: hidden;
     width: min-content;
     background-color: $light-nav-bg;
     border-radius: 10px;
+    will-change: transform;
     ul {
       display: flex;
       list-style: none;
       gap: 2px;
       align-items: center;
-      li {
+      li:not(.separator) {
         border-radius: 10px;
         display: flex;
         padding: 5px;
@@ -39,11 +39,15 @@ $top-nav-height: 40px;
             color: $light-nav-icon-hover-color;
           }
         }
+        .active,
         &:active {
           background-color: $primary-bg-color;
+          svg {
+            color: $light-nav-icon-hover-color;
+          }
         }
       }
-      .separator {
+      li.separator {
         width: 2px;
         height: 30px;
         background-color: $light-separator-color;

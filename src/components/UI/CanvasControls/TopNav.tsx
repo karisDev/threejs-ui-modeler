@@ -1,14 +1,24 @@
 import gsap from "gsap";
 import { useEffect } from "react";
 import cl from "./TopNav.module.scss";
-import { ReactComponent as LightIcon } from "../../../assets/icons/lighting.svg";
-import { ReactComponent as CubeIcon } from "../../../assets/icons/cube.svg";
-import { ReactComponent as LandscapeIcon } from "../../../assets/icons/landscape.svg";
-import { ReactComponent as ExportIcon } from "../../../assets/icons/export.svg";
 
-const TopNav = () => {
+export interface TopNavItems {
+  type: "button" | "separator"; // tbd: | "dropdown"
+  icon?: JSX.Element;
+  tooltip?: string;
+  active?: boolean;
+  onClick?: () => void;
+}
+
+interface TopNavProps {
+  navItems?: TopNavItems[];
+}
+
+const TopNav: React.FC<TopNavProps> = ({ navItems }) => {
+  // topnav enter animation
   useEffect(() => {
     gsap.utils.toArray(`.${cl.top_nav__container} li`).forEach((li: any, i) => {
+      if (li.classList.contains(cl.separator)) return;
       gsap.fromTo(
         li,
         { y: -100, opacity: 0 },
@@ -37,19 +47,25 @@ const TopNav = () => {
     <nav className={cl.top_nav__holder}>
       <div className={cl.top_nav__container}>
         <ul>
-          <li>
-            <CubeIcon />
-          </li>
-          <li>
-            <LightIcon />
-          </li>
-          <li>
-            <LandscapeIcon />
-          </li>
-          <span className={cl.separator} />
-          <li>
-            <ExportIcon />
-          </li>
+          {navItems &&
+            navItems.map((item, i) => {
+              if (item.type === "separator") {
+                return <li key={i} className={cl.separator}></li>;
+              } else {
+                return (
+                  item.type === "button" && (
+                    <li
+                      data-tooltip={item.tooltip}
+                      className={item.active ? cl.active : ""}
+                      key={i}
+                      onClick={item.onClick}
+                    >
+                      {item.icon}
+                    </li>
+                  )
+                );
+              }
+            })}
         </ul>
       </div>
     </nav>
