@@ -23,13 +23,23 @@ const MeshBuilder: Function = ({ meshes }: MeshBuilderProps): JSX.Element[] => {
             case MaterialType.MeshNormalMaterial:
               return <meshNormalMaterial />;
             case MaterialType.MeshBasicMaterial:
-              return <meshBasicMaterial color={mesh.material.color} />;
+              return (
+                <meshBasicMaterial
+                  color={mesh.material.color}
+                  wireframe={mesh.material.wireframe}
+                />
+              );
             case MaterialType.MeshStandartMaterial:
-              return <meshStandardMaterial color={mesh.material.color} />;
+              return (
+                <meshStandardMaterial
+                  color={mesh.material.color}
+                  wireframe={mesh.material.wireframe}
+                />
+              );
           }
         };
         return (
-          <mesh key={index} position={mesh.position}>
+          <mesh key={index} position={mesh.position} rotation={mesh.rotation}>
             {geometry()}
             {material()}
           </mesh>
