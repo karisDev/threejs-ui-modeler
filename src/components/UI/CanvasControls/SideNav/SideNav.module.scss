@@ -1,0 +1,42 @@
+@import "../../../../styles/variables.scss";
+
+.sidenav_container {
+  z-index: 10;
+  position: absolute;
+  border-radius: 10px;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s linear;
+  .sidenav_item {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    right: 0;
+    width: 350px;
+    animation: waitGsap 1s;
+    .sidenav_content {
+      border-radius: 10px;
+      margin: 5px;
+      padding: 5px;
+      background-color: $light-nav-bg;
+      .shapes {
+      }
+    }
+  }
+}
+
+// needed to wait gsap initial hide
+@keyframes waitGsap {
+  0% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

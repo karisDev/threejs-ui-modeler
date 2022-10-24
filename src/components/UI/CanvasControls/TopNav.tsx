@@ -15,7 +15,7 @@ interface TopNavProps {
 }
 
 const TopNav: React.FC<TopNavProps> = ({ navItems }) => {
-  // topnav enter animation
+  // enter animation
   useEffect(() => {
     gsap.utils.toArray(`.${cl.top_nav__container} li`).forEach((li: any, i) => {
       if (li.classList.contains(cl.separator)) return;

@@ -1,19 +1,17 @@
 @import "../../../styles/variables";
 
-$top-nav-height: 40px;
-
 .top_nav__holder {
-  z-index: 100;
+  z-index: 10;
   width: 100%;
   display: flex;
   position: absolute;
   justify-content: center;
+  top: 15px;
   .top_nav__container {
     height: $top-nav-height;
     display: flex;
     align-items: center;
     z-index: 100;
-    margin-top: 15px;
     padding: 0 5px;
     width: min-content;
     background-color: $light-nav-bg;
@@ -39,7 +37,7 @@ $top-nav-height: 40px;
             color: $light-nav-icon-hover-color;
           }
         }
-        .active,
+        &.active,
         &:active {
           background-color: $primary-bg-color;
           svg {
