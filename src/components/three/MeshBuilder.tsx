@@ -15,15 +15,17 @@ const MeshBuilder: Function = ({ meshes }: MeshBuilderProps): JSX.Element[] => {
             case GeometryType.Box:
               return <boxBufferGeometry />;
             case GeometryType.Sphere:
-              return <sphereBufferGeometry />;
+              return <sphereBufferGeometry args={[1, 24, 24]} />;
           }
         };
         const material = () => {
-          switch (mesh.material) {
+          switch (mesh.material.type) {
             case MaterialType.MeshNormalMaterial:
               return <meshNormalMaterial />;
-            default:
-              return <meshNormalMaterial />;
+            case MaterialType.MeshBasicMaterial:
+              return <meshBasicMaterial color={mesh.material.color} />;
+            case MaterialType.MeshStandartMaterial:
+              return <meshStandardMaterial color={mesh.material.color} />;
           }
         };
         return (

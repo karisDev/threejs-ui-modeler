@@ -7,10 +7,12 @@ export enum GeometryType {
 
 export enum MaterialType {
   MeshNormalMaterial,
+  MeshBasicMaterial,
+  MeshStandartMaterial,
 }
 
 export interface Material {
-  type?: MaterialType;
+  type: MaterialType;
   color?: string;
   roughness?: number;
   metalness?: number;

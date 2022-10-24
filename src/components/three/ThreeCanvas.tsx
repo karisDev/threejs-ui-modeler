@@ -25,11 +25,11 @@ const ThreeCanvas: React.FC<ThreeCanvasProps> = ({ scene, geometries }) => {
         minDistance={3}
         enableDamping={scene.cameraDamping ?? false}
       />
-      <ambientLight intensity={0.5} />
       <Stars />
       {scene.backgroundColor && (
         <color attach="background" args={[scene.backgroundColor]} />
       )}
+      <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} />
       <MeshBuilder meshes={geometries} />
     </Canvas>

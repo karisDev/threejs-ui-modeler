@@ -18,7 +18,7 @@ const SideNav: React.FC<SideNavProps> = (props) => {
     document.querySelector(selector)?.classList.remove(cl.hidden);
     gsap.fromTo(
       selector,
-      { height: "0" },
+      { x: "0", height: "0" },
       {
         height: "auto",
         duration: animationDuration,
@@ -28,6 +28,11 @@ const SideNav: React.FC<SideNavProps> = (props) => {
   };
   const slideOutAnimation = async (selector: string) => {
     const height = document.querySelector(selector)?.clientHeight;
+    gsap.to(selector, {
+      x: "350",
+      duration: animationDuration / 2,
+      ease: "power2.inOut",
+    });
     gsap.fromTo(
       selector,
       { height: height },

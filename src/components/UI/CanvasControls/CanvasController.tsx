@@ -1,4 +1,9 @@
-import { MeshObject, GeometryType, SceneObject } from "../../three/interfaces";
+import {
+  MeshObject,
+  GeometryType,
+  SceneObject,
+  MaterialType,
+} from "../../three/interfaces";
 import ThreeCanvas from "../../three/ThreeCanvas";
 import TopNav, { TopNavItems } from "./TopNav";
 import { ReactComponent as CubeIcon } from "../../../assets/icons/cube.svg";
@@ -12,10 +17,11 @@ import { useState } from "react";
 const geometries: MeshObject[] = [
   {
     geometryType: GeometryType.Sphere,
-    position: [0, 0, 0],
+    position: [0, 3, -3],
     rotation: [0, 0, 0],
     scale: [1, 1, 1],
     material: {
+      type: MaterialType.MeshStandartMaterial,
       color: "red",
       roughness: 0.5,
       metalness: 0.5,

@@ -15,15 +15,13 @@
     flex-direction: column;
     position: relative;
     right: 0;
-    width: 350px;
+    width: 320px;
     animation: waitGsap 1s;
     .sidenav_content {
       border-radius: 10px;
-      margin: 5px;
+      margin-bottom: 5px;
       padding: 5px;
       background-color: $light-nav-bg;
-      .shapes {
-      }
     }
   }
 }
