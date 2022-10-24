@@ -39,7 +39,7 @@ const MeshBuilder: Function = ({ meshes }: MeshBuilderProps): JSX.Element[] => {
           }
         };
         return (
-          <mesh key={index} position={mesh.position} rotation={mesh.rotation}>
+          <mesh key={mesh.id} position={mesh.position} rotation={mesh.rotation}>
             {geometry()}
             {material()}
           </mesh>

@@ -16,6 +16,7 @@ import { useState } from "react";
 // test data
 const geometries: MeshObject[] = [
   {
+    id: Date.now(),
     geometryType: GeometryType.Sphere,
     position: [0, 3, -3],
     rotation: [0, 0, 0],

@@ -20,6 +20,7 @@ export interface Material {
 }
 
 export interface MeshObject {
+  id: number;
   geometryType: GeometryType;
   material: Material;
   position?: Vector3;
