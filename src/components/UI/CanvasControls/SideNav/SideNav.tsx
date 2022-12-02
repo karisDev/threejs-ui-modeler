@@ -11,18 +11,38 @@ interface SideNavProps {
   backgroundActive: boolean;
 }
 
-const animationDuration = 0.5;
+export interface SideNavItem {
+  name: string;
+  active?: boolean;
+  element: JSX.Element;
+}
+
+interface UpdatedSideNavProps {
+  items: SideNavItem[];
+}
 
 const SideNav: React.FC<SideNavProps> = (props) => {
+  const animationDuration = 0.4;
+
   const slideInAnimation = (selector: string) => {
     document.querySelector(selector)?.classList.remove(cl.hidden);
     gsap.fromTo(
       selector,
-      { x: "0", height: "0" },
+      { height: "0" },
       {
         height: "auto",
         duration: animationDuration,
         ease: "power2.inOut",
+      }
+    );
+    gsap.fromTo(
+      selector,
+      { x: "350" },
+      {
+        x: "0",
+        duration: animationDuration,
+        delay: animationDuration,
+        ease: "power2.inIn",
       }
     );
   };
@@ -30,7 +50,7 @@ const SideNav: React.FC<SideNavProps> = (props) => {
     const height = document.querySelector(selector)?.clientHeight;
     gsap.to(selector, {
       x: "350",
-      duration: animationDuration / 2,
+      duration: animationDuration,
       ease: "power2.inOut",
     });
     gsap.fromTo(
@@ -39,12 +59,13 @@ const SideNav: React.FC<SideNavProps> = (props) => {
       {
         height: "0",
         duration: animationDuration,
+        delay: animationDuration,
         ease: "power2.inOut",
       }
     );
     // delay to allow animation to finish
     await new Promise((resolve) =>
-      setTimeout(resolve, animationDuration * 1000)
+      setTimeout(resolve, animationDuration * 2 * 1000)
     );
     document.querySelector(selector)?.classList.add(cl.hidden);
   };

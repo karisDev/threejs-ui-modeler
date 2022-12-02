@@ -9,6 +9,7 @@
   display: flex;
   flex-direction: column;
   transition: all 0.5s linear;
+  animation: waitGsap 2s linear;
   .sidenav_item {
     overflow: hidden;
     display: flex;
@@ -16,12 +17,22 @@
     position: relative;
     right: 0;
     width: 320px;
-    animation: waitGsap 1s;
+    // animation: waitGsap 1s;
     .sidenav_content {
       border-radius: 10px;
       margin-bottom: 5px;
-      padding: 5px;
+      padding: 10px;
       background-color: $light-nav-bg;
+      .heading {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: $light-nav-icon-hover-color;
+        svg {
+          width: 24px;
+          height: 24px;
+        }
+      }
     }
   }
 }
@@ -37,4 +48,7 @@
   100% {
     opacity: 1;
   }
+}
+
+.background_option {
 }

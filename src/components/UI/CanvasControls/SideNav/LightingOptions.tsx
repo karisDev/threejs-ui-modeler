@@ -5,7 +5,9 @@ interface LightingOptionsProps {}
 const LightingOptions: React.FC<LightingOptionsProps> = () => {
   return (
     <div className={cl.sidenav_content}>
-      <h1>Lighting</h1>
+      <div className={cl.heading}>
+        <h1>Lighting</h1>
+      </div>
     </div>
   );
 };
